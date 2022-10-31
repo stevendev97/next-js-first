@@ -40,7 +40,7 @@ export default function Navbar() {
         setAnchorElUser(null);
     };
     return (
-        <AppBar position="static">
+        <AppBar position="static" className='nav_bar'>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <StorefrontIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -93,7 +93,7 @@ export default function Navbar() {
                         >
                             {pages.map((page) => (
                                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Link href={page === 'Home' ? '/' : '#'}>
+                                    <Link href={page === 'Home' ? '/' : '#'} className='nav_btn'>
                                         <Typography textAlign="center">{page}</Typography>
                                     </Link>
                                 </MenuItem>
@@ -137,7 +137,7 @@ export default function Navbar() {
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <PersonIcon sx={{ display: { md: 'flex' }, mr: 1 }} />
+                                <PersonIcon sx={{ display: { md: 'flex' }, mr: 1 }} className='nav_icon' />
                             </IconButton>
                         </Tooltip>
                         <Menu

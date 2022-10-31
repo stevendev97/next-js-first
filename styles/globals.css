@@ -25,6 +25,23 @@ a {
   color: black;
 }
 
+.nav_bar {
+  background-color: white;
+  color: black;
+}
+
+.nav_bar a, .nav_bar p {
+  color: black;
+}
+
+.nav_btn {
+  color: black;
+}
+
+.nav_icon {
+  color: black;
+}
+
 .login_wrapper {
   height: 80vh;
   display: flex;
