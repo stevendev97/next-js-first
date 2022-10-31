@@ -2,8 +2,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-Make some changes
-Lily version
+
+CHANGE
 
 First, run the development server:
 
