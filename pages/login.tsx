@@ -19,8 +19,8 @@ const StyledPaper = styled(Paper, {})(Style.paper)
 const StyledButton = styled(Button, {})(Style.btn)
 
 function Login() {
-    const [name, setName] = useState<string>('admin');
-    const [password, setPassword] = useState<string>('admin123');
+    const [name, setName] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
     const router = useRouter();
 
     return (
@@ -33,7 +33,10 @@ function Login() {
                         e.preventDefault()
                             if (name === 'admin' && password === 'admin123') {
                                 router.replace('/')
+                            } else {
+                                alert('User name and password does not match')
                             }
+                        console.log(name, password)
                         }}>
                     <TextField
                         variant="outlined"
@@ -41,6 +44,8 @@ function Login() {
                         label="UserName"
                         fullWidth
                         required
+                        value={name}
+                        onChange = {(e)=>{setName(e.target.value)}}
                     />
                     <TextField
                         variant="outlined"
@@ -49,6 +54,8 @@ function Login() {
                         type="password"
                         fullWidth
                         required
+                        value={password}
+                        onChange = {(e)=>{setPassword(e.target.value)}}
                     />
                     <StyledButton
                         type="submit"
