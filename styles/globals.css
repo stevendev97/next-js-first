@@ -25,6 +25,16 @@ a {
   color: black;
 }
 
+
+/* Navbar Style Starts Here */ /* Navbar Style Starts Here */ /* Navbar Style Starts Here */
+/* Navbar Style Starts Here */ /* Navbar Style Starts Here */ /* Navbar Style Starts Here */
+
+@media (min-width: 1536px) {
+  .css-19r6kue-MuiContainer-root {
+    max-width: none;
+}
+}
+
 .nav_bar {
   background-color: white;
   color: black;
@@ -41,6 +51,39 @@ a {
 .nav_icon {
   color: black;
 }
+
+
+/* Carousel Style Starts Here */ /* Carousel Style Starts Here */ /* Carousel Style Starts Here */
+/* Carousel Style Starts Here */ /* Carousel Style Starts Here */ /* Carousel Style Starts Here */
+
+.carousel_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-root {
+  padding: 1rem;
+  width: 70%;
+}
+
+.thumbs-wrapper {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .login_wrapper {
   height: 80vh;
