@@ -16,6 +16,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 
 
+
 const pages = ['MEN', 'WOMEN', 'KIDS', 'SALE', 'GIFTS'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const settingsWithoutLogin = ['Login', 'Register']
@@ -43,15 +44,14 @@ export default function Navbar() {
         <AppBar position="static" className='nav_bar'>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <StorefrontIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, ml:76, position:"fixed"}} />
+                    <StorefrontIcon sx={{ display: { xs: 'none', md: "flex" }, ml:"42%", position:"fixed"}} />
                     <Typography
                         variant="h6"
                         noWrap
                         component="a"
                         href="/"
                         sx={{
-                            mr: 2,
-                            ml: 80,
+                            ml: "45%",
                             display: { xs: 'none', md: 'flex' },
                             fontFamily: 'monospace',
                             fontWeight: 700,
@@ -63,7 +63,7 @@ export default function Navbar() {
                     >
                         Shopping
                     </Typography>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }}}>
                         <IconButton
                             size="large"
                             aria-label="account of current user"
