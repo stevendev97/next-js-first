@@ -43,7 +43,7 @@ export default function Navbar() {
         <AppBar position="static" className='nav_bar'>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <StorefrontIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+                    <StorefrontIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, ml:76, position:"fixed"}} />
                     <Typography
                         variant="h6"
                         noWrap
@@ -51,12 +51,14 @@ export default function Navbar() {
                         href="/"
                         sx={{
                             mr: 2,
+                            ml: 80,
                             display: { xs: 'none', md: 'flex' },
                             fontFamily: 'monospace',
                             fontWeight: 700,
                             letterSpacing: '.1rem',
                             color: 'inherit',
                             textDecoration: 'none',
+                            position: "fixed"
                         }}
                     >
                         Shopping
