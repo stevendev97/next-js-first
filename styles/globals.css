@@ -25,14 +25,38 @@ a {
   color: black;
 }
 
+button {
+  font-size: 14px;
+  padding: 13px 18px;
+  cursor: pointer;
+  transition: all 100ms ease 0s;
+  letter-spacing: 2px;
+  background-color: rgb(33, 42, 47);
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(33, 42, 47);
+  text-align: center;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
 
-/* Navbar Style Starts Here */ /* Navbar Style Starts Here */ /* Navbar Style Starts Here */
-/* Navbar Style Starts Here */ /* Navbar Style Starts Here */ /* Navbar Style Starts Here */
+button:hover {
+  background-color: rgb(255, 255, 255);
+  color: rgb(33, 42, 47);
+  border: 2px solid transparent;
+}
+
+
+/* Navbar Style Starts Here */
+/* Navbar Style Starts Here */
+/* Navbar Style Starts Here */
+/* Navbar Style Starts Here */
+/* Navbar Style Starts Here */
+/* Navbar Style Starts Here */
 
 @media (min-width: 1536px) {
   .css-19r6kue-MuiContainer-root {
     max-width: none;
-}
+  }
 }
 
 .nav_bar {
@@ -40,7 +64,8 @@ a {
   color: black;
 }
 
-.nav_bar a, .nav_bar p {
+.nav_bar a,
+.nav_bar p {
   color: black;
 }
 
@@ -52,9 +77,96 @@ a {
   color: black;
 }
 
+/* banner Style Starts Here */
+/* banner Style Starts Here */
+/* banner Style Starts Here */
+/* banner Style Starts Here */
+/* banner Style Starts Here */
+/* banner Style Starts Here */
 
-/* Carousel Style Starts Here */ /* Carousel Style Starts Here */ /* Carousel Style Starts Here */
-/* Carousel Style Starts Here */ /* Carousel Style Starts Here */ /* Carousel Style Starts Here */
+
+.banner__wrapper {
+  min-width: 100%;
+  min-height: 100%;
+  max-height: 100%;
+}
+
+.banner__wrapper img {
+  width: 100%;
+  height: 95vh;
+  object-fit: cover;
+}
+
+.banner__img__wrapper {
+  position: relative;
+}
+
+.banner__wrapper .banner__title {
+  position: absolute;
+  bottom: 10%;
+  padding: 1rem;
+}
+
+.banner__wrapper .banner__title h3 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-shadow: white -1px 0 2px;
+}
+
+
+.banner__wrapper .banner__title p {
+  font-size: 1.2rem;
+  margin-top: -2.2rem;
+  text-shadow: white -1px 0 2px;
+}
+
+.banner__wrapper .banner__buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+@media (min-width: 500px) {
+  .banner__wrapper .banner__title {
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    text-align: right;
+  }
+  
+  .banner__wrapper .banner__title h3 {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  
+  
+  .banner__wrapper .banner__title p {
+    font-size: 1.2rem;
+    margin-top: -2.2rem;
+  }
+  
+  .banner__wrapper .banner__buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .banner__wrapper .banner__title h3 {
+    font-size: 3.5rem;
+    font-weight: bold;
+  }
+}
+
+
+
+/* Carousel Style Starts Here */
+/* Carousel Style Starts Here */
+/* Carousel Style Starts Here */
+/* Carousel Style Starts Here */
+/* Carousel Style Starts Here */
+/* Carousel Style Starts Here */
 
 .carousel_wrapper {
   display: flex;
