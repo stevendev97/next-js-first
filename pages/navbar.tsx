@@ -43,15 +43,14 @@ export default function Navbar() {
         <AppBar position="static" className='nav_bar'>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <StorefrontIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, ml:76, position:"fixed"}} />
+                    <StorefrontIcon sx={{ display: { xs: 'none', md: 'flex' }, ml:"42%", position:"fixed"}} />
                     <Typography
                         variant="h6"
                         noWrap
                         component="a"
                         href="/"
                         sx={{
-                            mr: 2,
-                            ml: 80,
+                            ml: "45%",
                             display: { xs: 'none', md: 'flex' },
                             fontFamily: 'monospace',
                             fontWeight: 700,
