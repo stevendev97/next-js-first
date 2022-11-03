@@ -17,45 +17,39 @@ import { RouterRounded } from "@mui/icons-material";
 const StyledPaper = styled(Paper, {})(Style.paper)
 
 const StyledButton = styled(Button, {})(Style.btn)
+const StyledTextField = styled(TextField, {})(Style.TextField)
 
 function Login() {
-    const [name, setName] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
+    const [name, setName] = useState<string>('admin');
+    const [password, setPassword] = useState<string>('admin123');
     const router = useRouter();
 
     return (
         <div className="login_wrapper">
             <StyledPaper className="login_form">
-                <Typography variant="h4" sx={{ textAlign: "center", margin: [1, 0, 3] }}>
+                <Typography variant="h4" sx={{ textAlign: "center", margin: [1, 0, 3] }} color="black">
                     Log In
                 </Typography>
                 <form onSubmit={(e) => {
                         e.preventDefault()
                             if (name === 'admin' && password === 'admin123') {
                                 router.replace('/')
-                            } else {
-                                alert('User name and password does not match')
                             }
-                        console.log(name, password)
                         }}>
-                    <TextField
+                    <StyledTextField
                         variant="outlined"
                         margin="normal"
                         label="UserName"
                         fullWidth
                         required
-                        value={name}
-                        onChange = {(e)=>{setName(e.target.value)}}
                     />
-                    <TextField
+                    <StyledTextField
                         variant="outlined"
                         margin="normal"
                         label="Password"
                         type="password"
                         fullWidth
                         required
-                        value={password}
-                        onChange = {(e)=>{setPassword(e.target.value)}}
                     />
                     <StyledButton
                         type="submit"
