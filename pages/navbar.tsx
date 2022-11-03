@@ -16,7 +16,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 
 
-const pages = ['Home', 'Products', 'Contact'];
+const pages = ['MEN', 'WOMEN', 'KIDS', 'SALE', 'GIFTS'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const settingsWithoutLogin = ['Login', 'Register']
 
@@ -61,7 +61,6 @@ export default function Navbar() {
                     >
                         Shopping
                     </Typography>
-
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
                             size="large"
@@ -133,6 +132,7 @@ export default function Navbar() {
                             </Button>
                         ))}
                     </Box>
+                    
 
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
@@ -172,6 +172,7 @@ export default function Navbar() {
                             }
                         </Menu>
                     </Box>
+                    
                 </Toolbar>
             </Container>
         </AppBar>

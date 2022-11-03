@@ -20,7 +20,7 @@ export default function Home() {
           <div className='individual_carousel_wraper'>
             <img
               alt=""
-              src="https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?ixlib=rb-4.0."
+              src="https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?ixlib=rb-4.0"
             />
             <p className="legend">Legend 1</p>
           </div>

@@ -1,6 +1,6 @@
 import { Formik, ErrorMessage } from 'formik'
 import Link from 'next/link';
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
 import styles from '../styles/register.module.css'
 import * as Yup from 'yup'
 import { useState } from 'react';
@@ -34,8 +34,11 @@ export default function Register() {
 
     return (
         <div className={styles.form__wrapper}>
-
-            <h1>Create an Account</h1>
+            <div className={styles.form__header}>
+                <h1>CREATE AN ACCOUNT</h1>
+                <p>We never save credit card information.</p>
+                <p>Registering makes checkout fast and easy and saves your order information in your account.</p>
+            </div>
 
             <Formik<formValues>
                 initialValues={{
@@ -115,7 +118,11 @@ export default function Register() {
                             <ErrorMessage name='password' />
                         </span>
                         <button type="submit">Register</button>
-                        <span>Already have an account? <Link href='/login'>Login</Link></span>
+                        <div className={styles.span__wrapper}>
+                            <p>By creating an account, you agree to our Terms of Use and Privacy Policy.</p>
+
+                            <p>Already have an account? <Link href='/login'>Login</Link></p>
+                        </div>
                     </form>
                 )}
             </Formik>
