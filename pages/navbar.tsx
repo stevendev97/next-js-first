@@ -43,6 +43,7 @@ export default function Navbar() {
         <AppBar position="static">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
+<<<<<<< Updated upstream
                     <StorefrontIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
                     <Typography
                         variant="h6"
@@ -63,6 +64,9 @@ export default function Navbar() {
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+=======
+                    {/* <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+>>>>>>> Stashed changes
                         <IconButton
                             size="large"
                             aria-label="account of current user"
@@ -99,9 +103,9 @@ export default function Navbar() {
                                 </MenuItem>
                             ))}
                         </Menu>
-                    </Box>
-                    <StorefrontIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-                    <Typography
+                    </Box> */}
+                    {/* <StorefrontIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
+                    {/* <Typography
                         variant="h5"
                         noWrap
                         component="a"
@@ -118,7 +122,7 @@ export default function Navbar() {
                         }}
                     >
                         Shopping
-                    </Typography>
+                    </Typography> */}
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
                             <Button
@@ -133,6 +137,30 @@ export default function Navbar() {
                             </Button>
                         ))}
                     </Box>
+<<<<<<< Updated upstream
+=======
+                    <StorefrontIcon sx={{ display: { xs: 'none', md: 'flex'}, mr: 1, ml: 76,
+                    position: "fixed"}}/>
+                    <Typography
+                        variant="h6"
+                        noWrap
+                        component="a"
+                        href="/"
+                        sx={{
+                            mr: 2,
+                            ml: 80,
+                            display: { xs: 'none', md: 'flex'},
+                            fontFamily: 'monospace',
+                            fontWeight: 700,
+                            letterSpacing: '.1rem',
+                            color: 'inherit',
+                            textDecoration: 'none',
+                            position:"fixed"
+                        }}
+                    >
+                        Shopping
+                    </Typography>
+>>>>>>> Stashed changes
 
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">

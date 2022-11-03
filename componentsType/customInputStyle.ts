@@ -9,17 +9,26 @@ type customInputStyle = {
 
 const customInputStyle = {
  btn: {
-    backgroundColor: "#2f62e0",
+    backgroundColor: "black",
     marginTop: 20,
     borderRedius: 2,
+    border: "2px solid black",
+    "&:hover":{
+         backgroundColor: "white",
+         color: "black",
+         border: "2px solid black"
+      }
   },
  paper: {
-    color: "#46484d",
-    backgroundColor: "#e9ecf2",
-    margin:"auto",
-    borderRedius: 2,
-    height: "50%", 
-    width: "30%",
+   boxShadow: "none",
+   backgroundColor: "#f1ebe6",
+   margin:"auto",
+   height: "100%", 
+   width: "100%",
+   marginTop: 20,
+ },
+ TextField:{
+   backgroundColor: "white"
  }
 };
 

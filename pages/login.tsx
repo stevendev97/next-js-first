@@ -17,6 +17,7 @@ import { RouterRounded } from "@mui/icons-material";
 const StyledPaper = styled(Paper, {})(Style.paper)
 
 const StyledButton = styled(Button, {})(Style.btn)
+const StyledTextField = styled(TextField, {})(Style.TextField)
 
 function Login() {
     const [name, setName] = useState<string>('admin');
@@ -26,7 +27,7 @@ function Login() {
     return (
         <div className="login_wrapper">
             <StyledPaper className="login_form">
-                <Typography variant="h4" sx={{ textAlign: "center", margin: [1, 0, 3] }}>
+                <Typography variant="h4" sx={{ textAlign: "center", margin: [1, 0, 3] }} color="black">
                     Log In
                 </Typography>
                 <form onSubmit={(e) => {
@@ -35,14 +36,14 @@ function Login() {
                                 router.replace('/')
                             }
                         }}>
-                    <TextField
+                    <StyledTextField
                         variant="outlined"
                         margin="normal"
                         label="UserName"
                         fullWidth
                         required
                     />
-                    <TextField
+                    <StyledTextField
                         variant="outlined"
                         margin="normal"
                         label="Password"
