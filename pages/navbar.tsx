@@ -43,7 +43,7 @@ export default function Navbar() {
         <AppBar position="static" className='nav_bar'>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <StorefrontIcon sx={{ display: { xs: 'none', md: 'flex' }, ml:"42%", position:"fixed"}} />
+                    <StorefrontIcon sx={{ display: { xs: 'none', md: 'flex' }, ml:"42%", position:"absolute"}} />
                     <Typography
                         variant="h6"
                         noWrap
@@ -57,7 +57,7 @@ export default function Navbar() {
                             letterSpacing: '.1rem',
                             color: 'inherit',
                             textDecoration: 'none',
-                            position: "fixed"
+                            position: "absolute"
                         }}
                     >
                         Shopping

@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import PhotosGrid from './photoGrid'
 
 
 export default function Home() {
@@ -50,7 +51,11 @@ export default function Home() {
           </div>
         </div>
       </div>
-
+      <br/>
+      <div className="grid__wrapper">
+      <h1>Our Best Selling Gems</h1>
+        <PhotosGrid/>
+      </div>
 
 
     </div>

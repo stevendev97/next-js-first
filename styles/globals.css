@@ -46,6 +46,7 @@ button:hover {
 }
 
 
+
 /* Navbar Style Starts Here */
 /* Navbar Style Starts Here */
 /* Navbar Style Starts Here */
@@ -160,6 +161,18 @@ button:hover {
 }
 
 
+/* Grids at Home Page Style Starts Here */
+/* Grids at Home Page Style Starts Here */
+/* Grids at Home Page Style Starts Here */
+/* Grids at Home Page Style Starts Here */
+/* Grids at Home Page Style Starts Here */
+/* Grids at Home Page Style Starts Here */
+.grid__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 /* Carousel Style Starts Here */
 /* Carousel Style Starts Here */
