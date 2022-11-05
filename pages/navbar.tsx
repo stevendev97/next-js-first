@@ -93,7 +93,7 @@ export default function Navbar() {
                         >
                             {pages.map((page) => (
                                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Link href={page === 'Home' ? '/' : '#'} className='nav_btn'>
+                                    <Link href={page === 'Home' ? '/' : ''} className='nav_btn'>
                                         <Typography textAlign="center">{page}</Typography>
                                     </Link>
                                 </MenuItem>
@@ -126,7 +126,7 @@ export default function Navbar() {
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
-                                <Link href={page === 'Home' ? '/' : '#'}>
+                                <Link href={page === 'Home' ? '/' : ''}>
                                     {page}
                                 </Link>
 
