@@ -1,9 +1,11 @@
 import React from 'react';
 import styles from "../styles/photos.module.scss";
+import { useRouter } from "next/router";
 
 
 
 function PhotosGrid(){
+    const router = useRouter();
     const pix: {url: string, id: number, title:string, age:number}[]= [
         {url: "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/451706/item/goods_35_451706.jpg?width=750", id: 1, title:"Shop Men", age:20},
         {url:"https://im.uniqlo.com/global-cms/spa/res72e1bb01171b2a38ff292f6dadde0a6ffr.jpg", id:2, title:"Shop Women",age:20},
@@ -17,7 +19,7 @@ function PhotosGrid(){
             <img src={pic.url} alt={pic.title} className={styles.img}/>
             {/* <p className={styles.title}>{pic.title}</p>
             <p className={styles.age}>{pic.age}</p> */}
-            <button className={styles.buttons}>{pic.title}</button>
+            <button className={styles.buttons} onClick={()=>{router.push('/register')}}>{pic.title}</button>
         </div>);
         })
         }
