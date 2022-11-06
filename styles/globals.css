@@ -182,33 +182,18 @@ button:hover {
 /* Carousel Style Starts Here */
 
 .carousel__wrapper {
-  width: 60%;
-  margin: 2rem auto;
+  width: 95%;
+  margin: 5rem auto;
   padding: 2rem;
-  background-color: gray;
-  overflow: visible;
-  position: relative;
 }
 
-.slick-list {
-  overflow: visible;
+.carousel__wrapper > h2 {
+  font-size: 2rem;
+  padding-left: 2rem;
 }
 
-/* .carousel_wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
-.carousel-root {
-  padding: 1rem;
-  width: 70%;
-}
 
-.thumbs-wrapper {
-  display: none;
-} */
 
 
 .card__wrapper {
