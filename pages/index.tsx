@@ -2,6 +2,7 @@ import Head from 'next/head'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import PhotosGrid from './photoGrid'
 import Carousel from './carousel';
+import SectionBreaker from '../components/section_breaker';
 
 
 
@@ -33,9 +34,13 @@ export default function Home() {
         <PhotosGrid />
       </div>
 
+      <SectionBreaker />
+
       <>
         <Carousel />
       </>
+
+      <SectionBreaker />
     </div>
   )
 }

@@ -172,6 +172,7 @@ button:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 4rem 0;
 }
 
 /* Carousel Style Starts Here */
@@ -183,7 +184,7 @@ button:hover {
 
 .carousel__wrapper {
   width: 95%;
-  margin: 5rem auto;
+  margin: 2rem auto;
   padding: 2rem;
 }
 
