@@ -18,7 +18,7 @@ body {
 
 a {
   text-decoration: none;
-  color: white;
+  color: #1776d1;
 }
 
 .icons_links {
@@ -44,6 +44,7 @@ button:hover {
   color: rgb(33, 42, 47);
   border: 2px solid transparent;
 }
+
 
 
 /* Navbar Style Starts Here */
@@ -160,6 +161,18 @@ button:hover {
 }
 
 
+/* Grids at Home Page Style Starts Here */
+/* Grids at Home Page Style Starts Here */
+/* Grids at Home Page Style Starts Here */
+/* Grids at Home Page Style Starts Here */
+/* Grids at Home Page Style Starts Here */
+/* Grids at Home Page Style Starts Here */
+.grid__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 /* Carousel Style Starts Here */
 /* Carousel Style Starts Here */
