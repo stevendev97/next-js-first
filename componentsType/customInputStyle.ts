@@ -21,11 +21,10 @@ const customInputStyle = {
   },
  paper: {
    boxShadow: "none",
-   backgroundColor: "#f1ebe6",
+   backgroundColor: "transparent",
    margin:"auto",
    height: "100%", 
    width: "100%",
-   marginTop: 20,
  },
  TextField:{
    backgroundColor: "white"
