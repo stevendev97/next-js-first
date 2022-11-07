@@ -63,15 +63,17 @@ const SectionBreakerCaptionWrapper = styled.div`
          }
     }
 `
+type Props = {
+    img: string
+    children: JSX.Element
+}
 
-export default function SectionBreaker() {
+export default function SectionBreaker({ img, children }:Props) {
     return (
         <SectionBreakerWrapper>
-            <Img src="https://images.unsplash.com/photo-1523381294911-8d3cead13475?ixlib=rb-4.0.3" alt="" ></Img>
+            <Img src={img} alt="" ></Img>
             <SectionBreakerCaptionWrapper>
-                <h2>As Cozy as a Sheep. And Much Easier to Wrap.</h2>
-                <p>Fully Fluff-graded shoes and apparel for the entire family can only mean one thing: it is never been easier to give the gift of comfort.</p>
-                <button>SHOP NOW</button>
+                {children}
             </SectionBreakerCaptionWrapper>
         </SectionBreakerWrapper>
     )
