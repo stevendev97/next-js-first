@@ -55,10 +55,6 @@ export default function Home() {
           <button>SHOP NOW</button>
         </>
       </SectionBreaker>
-
-      <>
-      <Footer/>
-      </>
     </div>
   )
 }

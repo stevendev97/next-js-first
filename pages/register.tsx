@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import styles from '../styles/register.module.css'
 import * as Yup from 'yup'
 import { useState } from 'react';
+import Footer from '../components/footer';
 
 
 export default function Register() {

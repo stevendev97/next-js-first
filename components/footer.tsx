@@ -5,13 +5,21 @@ type media = {
 }
 
 const media = {
-    desktop: (...args:any) => {
+    desktop: (args:any) => {
     return css`
     @media (min-width: 870px){
-        ${css(...args)};
+        ${css(args)};
     }
     `
 }};
+
+//////
+// media.desktop`
+//     padding: 45px 80px;
+//     display: flex;
+//     flex-flow: row;
+//     justify-content: space-between;
+//     `
 
 const NewFooter = styled.footer`
 font-family: nunito-sans, sans-serif;
@@ -33,6 +41,7 @@ const BottomBar = styled.div`
     display: flex;
     flex-flow: row;
     justify-content: space-between;
+    border: 1px solid red;
     `
   }
 `;

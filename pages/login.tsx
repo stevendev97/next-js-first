@@ -13,6 +13,7 @@ import Style from '../componentsType/customInputStyle';
 import { useRouter } from "next/router";
 import { RouterRounded } from "@mui/icons-material";
 import Link from 'next/link';
+import Footer from '../components/footer';
 
 
 const StyledPaper = styled(Paper, {})(Style.paper)
@@ -63,7 +64,6 @@ function Login() {
                 </form>
                 <p>Don't have an account yet? <Link href='/register'>Register</Link></p>
             </StyledPaper>
-            
         </div>
 
     );
