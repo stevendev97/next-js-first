@@ -19,7 +19,10 @@ function PhotosGrid(){
             <img src={pic.url} alt={pic.title} className={styles.img}/>
             {/* <p className={styles.title}>{pic.title}</p>
             <p className={styles.age}>{pic.age}</p> */}
-            <button className={styles.buttons} onClick={()=>{router.push('/register')}}>{pic.title}</button>
+            <button className={styles.buttons} onClick={()=>{
+                if(pic.title === "Become Our Member"){
+                    router.push('/register')}
+                }}>{pic.title}</button>
         </div>);
         })
         }
