@@ -37,11 +37,8 @@ const BottomBar = styled.div`
   padding: 40px 0;
   ${
     media.desktop`
-    padding: 45px 80px;
     display: flex;
-    flex-flow: row;
-    justify-content: space-between;
-    border: 1px solid red;
+    justify-content: center;
     `
   }
 `;
@@ -131,12 +128,14 @@ const Policy = styled.div`
   max-width: 764px;
   font-size: 12px;
   line-height: 1.33;
+
+  p {
+    text-align: center;
+  }
 `;
 
 const PolicyRow = styled.p`
-  margin: 0;
-  padding: 0;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 `;
 
 const Flag = styled.img`
@@ -244,9 +243,7 @@ export default function Footer(){
         </MiddleBar>
         <BottomBar>
             <Policy>
-                <PolicyRow>
-                © 2022 Shopping, Inc. All Rights Reserved. Terms, Privacy & Accessibility
-                </PolicyRow> 
+              <p>© 2022 Shopping, Inc. All Rights Reserved. Terms, Privacy & Accessibility</p>
             </Policy> 
         </BottomBar>
        </NewFooter>
