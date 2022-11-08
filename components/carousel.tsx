@@ -6,7 +6,8 @@ import CarouselCard from "./carouselcard";
 
 export default function Carousel() {
     const settings = {
-        infinite: false,
+        autoplay: true,
+        infinite: true,
         speed: 500,
         slidesToShow: 6,
         slidesToScroll: 1,
