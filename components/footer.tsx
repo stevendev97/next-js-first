@@ -1,14 +1,15 @@
 import React from 'react';
-import styled, {css} from "styled-components";
-type media = {
-    string: object,
-}
+import {css} from "styled-components";
+import styled from "styled-components";
+// type media = {
+//     string: object,
+// }
 
 const media = {
     desktop: (args:any) => {
     return css`
     @media (min-width: 870px){
-        ${css(args)};
+        ${args};
     }
     `
 }};
@@ -204,7 +205,8 @@ const menu = [
 
 export default function Footer(){
 
-    return(<div className="footer-wrapper">
+    return(
+    <div className="footer-wrapper">
        <NewFooter>
         <TopBar>
         {menu.map(({ name, links }) => (

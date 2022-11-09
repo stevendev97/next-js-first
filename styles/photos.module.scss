@@ -1,15 +1,4 @@
 
-// .body{
-//     margin: 0;
-//     padding: 0;
-//     box-sizing: border-box;
-//     font-family: sans-serif;
-//     display: flex;
-//     justify-content: center;
-//     background: white;
-// }
-
-
 .photos_grid_container{
     display:grid;
     grid-template-columns: repeat(3, 1fr);
