@@ -1,11 +1,86 @@
+.choice_labels{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    .choice_underlined{
+        background-color: transparent;
+        font-size: 16px;
+        font-weight: 600;
+        color: #212a2e;
+        border-color: transparent;
+        border-bottom: 2px solid #212a2e;
+    }
+    .choice{
+        background-color: transparent;
+        font-size: 16px;
+        font-weight: 600;
+        color: #212a2e;
+        border-color: transparent;
+        &:hover{
+            border-bottom: 2px solid #212a2e;
+        }
+    }
 
+    @media (min-width: 870px){
+        display: none;
+        
+    }
+}
+
+.grid_item{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: all 0.2s ease;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover{
+        cursor: pointer;
+        .img{
+            transform: scale(1.1);
+            opacity:0.3;
+        }
+        .title{
+            visibility:visible;
+        }
+        .buttons{
+            visibility: visible;
+            z-index: 500;
+        }
+    }
+    .img{
+        width: 80%;
+        object-fit: cover;
+        transition: all 0.3s ease;
+        box-shadow: 0px 3px 3px lightgrey;
+    }
+    .title{
+        visibility:hidden;
+        position: absolute;
+        bottom: 1rem; 
+        left: 1rem;
+        color: darkblue;
+        text-shadow: 1px 1px 3px lightgrey;
+    }
+    .buttons{
+        visibility: hidden;
+        position: absolute;
+        gap: 1rem;
+    }
+
+@media (min-width: 870px){
+    display:none;
+}
+
+}
 .photos_grid_container{
     display:grid;
     grid-template-columns: repeat(3, 1fr);
     max-width: 1500px;
     grid-gap: 1.5rem;
-    margin: 4rem 0;
-
+    margin: 3rem 0;
 
 .grid_item{
     width: 100%;
@@ -17,13 +92,6 @@
     justify-content: center;
     align-items: center;
     box-shadow: 0px 3px 3px lightgrey;
-    // &::before{
-    //     content: '';
-    //     position: absolute;
-    //     width: 100%;
-    //     height: 100%;
-    //     background: rgba(0,0,0,0.5);
-    // }
     &:hover{
         cursor: pointer;
         .img{
@@ -31,9 +99,6 @@
             opacity:0.3;
         }
         .title{
-            visibility:visible;
-        }
-        .age{
             visibility:visible;
         }
         .buttons{
@@ -55,25 +120,15 @@
         color: darkblue;
         text-shadow: 1px 1px 3px lightgrey;
     }
-    .age{
-        visibility:hidden;
-        position: absolute;
-        bottom: 0rem; 
-        left: 1rem;
-        color: darkblue;
-        text-shadow: 0px 1px 3px #e4e6ed;
-    }
     .buttons{
         visibility: hidden;
         position: absolute;
         gap: 1rem;
     }
 }
-// @media (max-width: 700px){
-//     width: 100%;
-//     height: 100%;
-//     background-color: red;
-// }
+@media (max-width: 870px){
+    display:none;
+}
 }
 
     
