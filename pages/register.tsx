@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import styles from '../styles/register.module.css'
 import * as Yup from 'yup'
 import { useState } from 'react';
-import Footer from '../components/footer';
 
 
 export default function Register() {
@@ -47,7 +46,7 @@ export default function Register() {
                     lastName: '',
                     email: '',
                     password: ''
-                }} onSubmit={(values: formValues, { resetForm }): void => {
+                }} onSubmit={async (values: formValues, { resetForm }): Promise<void> => {
                     setUsersInfos(prev => [...prev, values])
                     resetForm({
                         values: {
@@ -57,8 +56,24 @@ export default function Register() {
                             password: ''
                         }
                     })
-                    
-                    router.replace('/')
+                    // new content
+                    const response = await fetch('http://localhost:1337/api/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        name: `${values.firstName} ${values.lastName}`,
+                        email: values.email,
+                        password: values.password,
+                        }),
+                    });
+                    const data = await response.json();
+                    if (data.status === 'ok') {
+                        router.replace('/')
+                    }
+                    console.log(data);
+                    // new content
                 }}
 
                 validationSchema={validate}

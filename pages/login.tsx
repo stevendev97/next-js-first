@@ -13,7 +13,6 @@ import Style from '../componentsType/customInputStyle';
 import { useRouter } from "next/router";
 import { RouterRounded } from "@mui/icons-material";
 import Link from 'next/link';
-import Footer from '../components/footer';
 
 
 const StyledPaper = styled(Paper, {})(Style.paper)
@@ -22,8 +21,9 @@ const StyledButton = styled(Button, {})(Style.btn)
 const StyledTextField = styled(TextField, {})(Style.TextField)
 
 function Login() {
-    const [name, setName] = useState<string>('admin');
-    const [password, setPassword] = useState<string>('admin123');
+    const [name, setName] = useState<string>();
+    const [password, setPassword] = useState<string>();
+    const [loginFailed, setLoginFailed] = useState(false);
     const router = useRouter();
 
     return (
@@ -32,16 +32,39 @@ function Login() {
                 <Typography variant="h4" sx={{ textAlign: "center", margin: [1, 0, 3], fontWeight: 'medium'}} color="black">
                     Log In
                 </Typography>
-                <form onSubmit={(e) => {
+                <form onSubmit={async (e) => {
                         e.preventDefault()
-                            if (name === 'admin' && password === 'admin123') {
-                                router.replace('/')
-                            }
+                            // if (name === 'admin' && password === 'admin123') {
+                            //     router.replace('/')
+                            // }
+                        const response = await fetch('http://localhost:1337/api/login', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({
+                                name,
+                                password,
+                            }),
+                        })
+                        const data = await response.json()
+                
+                        if (data.user) {
+                            setLoginFailed(false);
+                            router.replace('/');
+                        }else{
+                            setLoginFailed(true);
+                            setName('');
+                            setPassword('');
+                        }
+                        console.log(data)
                         }}>
                     <StyledTextField
                         variant="outlined"
                         margin="normal"
                         label="UserName"
+                        value={name}
+                        onChange={(event) => setName(event.target.value)}
                         fullWidth
                         required
                     />
@@ -50,6 +73,8 @@ function Login() {
                         margin="normal"
                         label="Password"
                         type="password"
+                        value={password}
+                        onChange={(event) => setPassword(event.target.value)}
                         fullWidth
                         required
                     />
@@ -61,6 +86,11 @@ function Login() {
                     >
                         Log In
                     </StyledButton>
+                    {loginFailed && 
+                    <Typography sx={{ fontSize: 16, textAlign: "center", fontWeight: 'light'}} color="red">
+                        * Username or Password is not correct. Please try again.
+                    </Typography>
+                    }
                 </form>
                 <p>Don't have an account yet? <Link href='/register'>Register</Link></p>
             </StyledPaper>
