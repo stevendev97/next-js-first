@@ -56,24 +56,24 @@ export default function Register() {
                             password: ''
                         }
                     })
-                    // new content
-                    const response = await fetch('http://localhost:1337/api/register', {
+                    // const response = await fetch('http://localhost:1337/api/register', {
+                    const response = await fetch('http://localhost:8081/users', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        name: `${values.firstName} ${values.lastName}`,
-                        email: values.email,
+                        // name: `${values.firstName} ${values.lastName}`,
+                        username: values.email,
                         password: values.password,
                         }),
                     });
                     const data = await response.json();
-                    if (data.status === 'ok') {
+                    // if (data.status === 'ok') {
+                    if (data.succeess) {
                         router.replace('/')
                     }
                     console.log(data);
-                    // new content
                 }}
 
                 validationSchema={validate}

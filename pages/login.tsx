@@ -14,7 +14,6 @@ import { useRouter } from "next/router";
 import { RouterRounded } from "@mui/icons-material";
 import Link from 'next/link';
 
-
 const StyledPaper = styled(Paper, {})(Style.paper)
 
 const StyledButton = styled(Button, {})(Style.btn)
@@ -34,22 +33,16 @@ function Login() {
                 </Typography>
                 <form onSubmit={async (e) => {
                         e.preventDefault()
-                            // if (name === 'admin' && password === 'admin123') {
-                            //     router.replace('/')
-                            // }
-                        const response = await fetch('http://localhost:1337/api/login', {
+                        let formData = new FormData();
+                        formData.append('username', `${name}`);
+                        formData.append('password', `${password}`);
+                        const response = await fetch('http://localhost:8081/login', {
                             method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify({
-                                name,
-                                password,
-                            }),
+                            body: formData,
                         })
                         const data = await response.json()
                 
-                        if (data.user) {
+                        if (data.succeess) {
                             setLoginFailed(false);
                             router.replace('/');
                         }else{
