@@ -3,7 +3,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styles from '../styles/register.module.css'
 import * as Yup from 'yup'
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import loginContext from '../contexts/loginContext';
 
 type props = {
     role: string;
@@ -19,6 +20,7 @@ export default function Register({role}: props) {
 
     const [usersInfos, setUsersInfos] = useState<formValues[]>([])
     const router = useRouter();
+    const {loginStatus, setLoginStatus} = useContext(loginContext);
 
     const validate = Yup.object({
         firstName: Yup.string()
@@ -75,7 +77,8 @@ export default function Register({role}: props) {
                     const data = await response.json();
                     // if (data.status === 'ok') {
                     if (data.succeess) {
-                        router.replace('/')
+                        setLoginStatus(true);
+                        router.replace('/');
                     }
                     console.log(data);
                 }}

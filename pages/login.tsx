@@ -7,12 +7,13 @@ import {
     Paper
 } from "@mui/material";
 import { styled } from '@mui/system'
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useForm } from "react-hook-form";
 import Style from '../componentsType/customInputStyle';
 import { useRouter } from "next/router";
 import { RouterRounded } from "@mui/icons-material";
 import Link from 'next/link';
+import loginContext from '../contexts/loginContext';
 
 type props = {
     role: string;
@@ -27,7 +28,7 @@ function Login({role}: props) {
     const [password, setPassword] = useState<string>();
     const [loginFailed, setLoginFailed] = useState<boolean>(false);
     const router = useRouter();
-    
+    const {loginStatus, setLoginStatus} = useContext(loginContext);
     return (
         <div className="login_wrapper">
             <StyledPaper className="login_form">
@@ -54,7 +55,8 @@ function Login({role}: props) {
                         const data = await response.json()
                 
                         if (data.succeess) {
-                            setLoginFailed(false);
+                            setLoginStatus(true);
+                            // setLoginFailed(false);
                             router.replace('/');
                         }else{
                             setLoginFailed(true);

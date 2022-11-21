@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import Link from 'next/link';
 
 import StorefrontIcon from '@mui/icons-material/Storefront';
@@ -16,6 +16,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { styled } from '@mui/system'
 import Style from '../componentsType/customInputStyle';
+import loginContext from '../contexts/loginContext';
 
 
 const pages = ['MEN', 'WOMEN', 'KIDS', 'SALE', 'GIFTS'];
@@ -27,6 +28,7 @@ export default function Navbar() {
     const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
     const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
     const [isLogin, setIsLogin] = useState<boolean>(false)
+    const {loginStatus, setLoginStatus} = useContext(loginContext);
 
     const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorElNav(event.currentTarget);
@@ -144,6 +146,12 @@ export default function Navbar() {
                         Seller Entry
                         </StyledButton>
                         </Link>
+                        {loginStatus ? <StyledButton size="small" sx={{color:"white", mb:1.75, mr:0, py: 0, px:1, fontSize: '11px'}}
+                        onClick={()=>{setLoginStatus(false)}}>
+                        logout
+                        </StyledButton>
+                        : 
+                        <>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                 <PersonIcon sx={{ display: { md: 'flex' }, mr: 1 }} className='nav_icon' />
@@ -180,6 +188,7 @@ export default function Navbar() {
                                 ))
                             }
                         </Menu>
+                        </>}
                     </Box>
                     
                 </Toolbar>
