@@ -14,23 +14,34 @@ import { useRouter } from "next/router";
 import { RouterRounded } from "@mui/icons-material";
 import Link from 'next/link';
 
-const StyledPaper = styled(Paper, {})(Style.paper)
+type props = {
+    role: string;
+};
 
+const StyledPaper = styled(Paper, {})(Style.paper)
 const StyledButton = styled(Button, {})(Style.btn)
 const StyledTextField = styled(TextField, {})(Style.TextField)
 
-function Login() {
+function Login({role}: props) {
     const [name, setName] = useState<string>();
     const [password, setPassword] = useState<string>();
-    const [loginFailed, setLoginFailed] = useState(false);
+    const [loginFailed, setLoginFailed] = useState<boolean>(false);
     const router = useRouter();
-
+    
     return (
         <div className="login_wrapper">
             <StyledPaper className="login_form">
-                <Typography variant="h4" sx={{ textAlign: "center", margin: [1, 0, 3], fontWeight: 'medium'}} color="black">
+                {role == undefined ? <Typography variant="h4" sx={{ textAlign: "center", margin: [1, 0, 3], fontWeight: 'medium'}} color="black">
                     Log In
+                </Typography> : 
+                <><Typography variant="h6" sx={{ textAlign: "center", margin: [1, 0, 3], fontWeight: 'medium'}} color="black">
+                *If you are a customer of our site please visit customers' channel to log in.
                 </Typography>
+                <Typography variant="h4" sx={{ textAlign: "center", margin: [1, 0, 3], fontWeight: 'medium'}} color="black">
+                Seller Log In
+                </Typography>
+                </>
+                }
                 <form onSubmit={async (e) => {
                         e.preventDefault()
                         let formData = new FormData();
@@ -85,7 +96,9 @@ function Login() {
                     </Typography>
                     }
                 </form>
-                <p>Don't have an account yet? <Link href='/register'>Register</Link></p>
+                {role == undefined ? <p>Don't have an account yet? <Link href='/register'>Register</Link></p> :
+                 <p>Don't have a seller account yet? <Link href='/seller_register'>Register</Link></p>
+                }
             </StyledPaper>
         </div>
 

@@ -5,8 +5,11 @@ import styles from '../styles/register.module.css'
 import * as Yup from 'yup'
 import { useState } from 'react';
 
+type props = {
+    role: string;
+};
 
-export default function Register() {
+export default function Register({role}: props) {
     interface formValues {
         firstName: string,
         lastName: string,
@@ -35,7 +38,8 @@ export default function Register() {
     return (
         <div className={styles.form__wrapper}>
             <div className={styles.form__header}>
-                <h1>CREATE AN ACCOUNT</h1>
+                {role == undefined ? <h1>CREATE AN ACCOUNT</h1> :
+                <h1>CREATE A SELLER ACCOUNT</h1>}
                 <p>We never save credit card information.</p>
                 <p>Registering makes checkout fast and easy and saves your order information in your account.</p>
             </div>
@@ -138,7 +142,8 @@ export default function Register() {
                         <div className={styles.span__wrapper}>
                             <p>By creating an account, you agree to our Terms of Use and Privacy Policy.</p>
 
-                            <p>Already have an account? <Link href='/login'>Login</Link></p>
+                            <p>Already have an account? {role == undefined ? <Link href='/login'>Login</Link> : 
+                            <Link href='/seller_login'>Login</Link>}</p>
                         </div>
                     </form>
                 )}

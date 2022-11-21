@@ -14,11 +14,14 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import { styled } from '@mui/system'
+import Style from '../componentsType/customInputStyle';
 
 
 const pages = ['MEN', 'WOMEN', 'KIDS', 'SALE', 'GIFTS'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const settingsWithoutLogin = ['Login', 'Register']
+const StyledButton = styled(Button, {})(Style.btn)
 
 export default function Navbar() {
     const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
@@ -133,9 +136,14 @@ export default function Navbar() {
                             </Button>
                         ))}
                     </Box>
-                    
+
 
                     <Box sx={{ flexGrow: 0 }}>
+                        <Link href="/seller_login">
+                        <StyledButton size="small" sx={{color:"white", mb:1.75, mr:2, py: 0, px:1, fontSize: '11px'}}>
+                        Seller Entry
+                        </StyledButton>
+                        </Link>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                 <PersonIcon sx={{ display: { md: 'flex' }, mr: 1 }} className='nav_icon' />
