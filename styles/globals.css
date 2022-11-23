@@ -179,8 +179,7 @@ button:hover {
 /* Carousel Style Starts Here */
 /* Carousel Style Starts Here */
 /* Carousel Style Starts Here */
-/* Carousel Style Starts Here */
-/* Carousel Style Starts Here */
+
 
 .carousel__wrapper {
   width: 95%;
@@ -212,10 +211,10 @@ button:hover {
   padding: .5rem;
 }
 
-
-
-
-
+/* login Style Starts Here */
+/* login Style Starts Here */
+/* login Style Starts Here */
+/* login Style Starts Here */
 
 .login_wrapper {
   width: 100%;
@@ -231,4 +230,71 @@ button:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+/* seller_sidebar Style Starts Here */
+/* seller_sidebar Style Starts Here */
+/* seller_sidebar Style Starts Here */
+/* seller_sidebar Style Starts Here */
+
+.sell-sidebar-container {
+  display: flex;
+  height: 50px;
+  width: 100%;
+}
+
+.sell__tab {
+  padding: 20px;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 1270px) {
+  .sell-sidebar-container {
+    width: 20%;
+    max-width: 400px;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+
+    display: flex;
+    flex-direction: column;
+    
+    float: left;
+  }
+
+  .sell__tab {
+    padding: 1.5rem;
+    width: 100%;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  }
+}
+
+.sell__tab span {
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+.sell__tab span:hover {
+  transform: scale(1.2);
+}
+
+/* footer Style Starts Here */
+/* footer Style Starts Here */
+/* footer Style Starts Here */
+/* footer Style Starts Here */
+
+
+.footer-wrapper {
+  clear: both;
 }
