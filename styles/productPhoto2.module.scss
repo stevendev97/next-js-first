@@ -1,0 +1,124 @@
+.photos_grid_container{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1500px;
+    grid-gap: 1.5rem;
+    margin: 3rem 2rem;
+
+    // &:hover{
+    //     cursor: pointer;
+    //    .grid_item_1{
+    //     display:none;
+    //    }
+    //    .grid_item_2{
+    //     display: inline-block;
+    //    }
+    // }
+    .grid_extension{
+        width: 90%;
+        padding: 5% 5%;
+        transition: all 0.2s ease;
+        position: relative;
+
+        &:hover{
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);   
+            height: 125%;
+            z-index: 500;
+            background-color: white;
+            // border: 3px solid purple;
+            
+            .size_section{
+              width: 90%;
+              display:block;
+              background-color: white;
+              color:black;
+            //   z-index: 500;
+            //   vertical-align:top;
+            //   float: left;
+              position: absolute;
+            }
+        } 
+
+        .grid_item{
+            width: 100%;
+            position: relative;
+            // overflow: hidden;
+            display: inline-block;
+            // transition: all 0.2s ease;
+            
+            
+            
+            .color_grid{
+                display:grid;
+                grid-template-columns: repeat(5, 1fr);
+                margin: 0 0.2rem;
+                .square{
+                    width: 4rem;
+                    height: 3.8rem;
+                    border: 3px solid green;
+                    margin: 0.2rem 0;
+                }
+            }
+            
+            // .hide{
+            //     display: none;
+            // }
+            .img{
+                width: 100%;
+                object-fit: cover;
+                transition: all 0.2s ease;
+            }
+            .title{
+                // position: absolute;
+                // bottom: 1rem; 
+                // left: 1rem;
+                color: darkblue;
+                // text-shadow: 0px 1px 3px #e4e6ed;
+            }
+            .age{
+                // position: absolute;
+                // bottom: 0rem; 
+                // left: 1rem;
+                color: darkblue;
+                // text-shadow: 0px 1px 3px #e4e6ed;
+            }
+        }
+    }
+    .size_section{
+        display: none;
+        p{
+            margin: 0.2rem 0.2rem;
+      
+        }
+        .size_grid{
+            display:grid;
+            grid-template-columns: repeat(5, 1fr);
+            margin: 0 0.2rem;
+            .square{
+                width: 4rem;
+                height: 3.8rem;
+                border: 1px solid red;
+                margin: 0.2rem 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+
+
+}
+    
+    
+    
+
+
+    
+
+
+
+
+
+
+    

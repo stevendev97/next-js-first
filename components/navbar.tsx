@@ -98,7 +98,7 @@ export default function Navbar() {
                         >
                             {pages.map((page) => (
                                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Link href={page === 'Home' ? '/' : ''} className='nav_btn'>
+                                    <Link href={page === 'Home' ? '/' : `/${page.toLowerCase()}`} className='nav_btn'>
                                         <Typography textAlign="center">{page}</Typography>
                                     </Link>
                                 </MenuItem>
@@ -131,7 +131,7 @@ export default function Navbar() {
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
-                                <Link href={page === 'Home' ? '/' : ''}>
+                                <Link href={page === 'Home' ? '/' : `/${page.toLowerCase()}`}>
                                     {page}
                                 </Link>
 
@@ -147,7 +147,7 @@ export default function Navbar() {
                         </StyledButton>
                         </Link>
                         {loginStatus ? <StyledButton size="small" sx={{color:"white", mb:1.75, mr:0, py: 0, px:1, fontSize: '11px'}}
-                        onClick={()=>{setLoginStatus(false)}}>
+                        onClick={()=>{setLoginStatus(false);}}>
                         logout
                         </StyledButton>
                         : 

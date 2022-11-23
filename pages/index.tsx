@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import PhotosGrid from './photoGrid'
+import PhotosGrid from '../components/photoGrid'
 import Carousel from '../components/carousel';
 import SectionBreaker from '../components/section_breaker';
 

@@ -57,6 +57,12 @@ function Login({role}: props) {
                         if (data.succeess) {
                             setLoginStatus(true);
                             // setLoginFailed(false);
+                            // if (typeof window !== "undefined") {
+
+                            //     localStorage.setItem('user', `${name}`);
+                                
+                            // }
+                            
                             router.replace('/');
                         }else{
                             setLoginFailed(true);

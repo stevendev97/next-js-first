@@ -78,6 +78,13 @@ export default function Register({role}: props) {
                     // if (data.status === 'ok') {
                     if (data.succeess) {
                         setLoginStatus(true);
+                        // if (typeof window !== "undefined") {
+
+                        //     localStorage.setItem('user', `${values.email}`);
+                            
+                        // }
+                        
+                        // localStorage.setItem('user', `${values.email}`);
                         router.replace('/');
                     }
                     console.log(data);
