@@ -3,6 +3,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import PhotosGrid from '../components/photoGrid'
 import Carousel from '../components/carousel';
 import SectionBreaker from '../components/section_breaker';
+import { useRouter } from "next/router";
 
 
 const pix: {url: string, label: string, title:string, age:number}[]= [
@@ -12,6 +13,7 @@ const pix: {url: string, label: string, title:string, age:number}[]= [
 ]
 
 export default function Home() {
+  const router = useRouter();
   return (
     <div>
       <Head>
@@ -28,8 +30,8 @@ export default function Home() {
           <h3>Our Vibrant Launch Ever</h3>
           <p>The softest, coziest merino wool is back and bigger than ever.</p>
           <div className='banner__buttons'>
-            <button>Shop Men</button>
-            <button>Shop Women</button>
+            <button onClick={()=>{router.push('/men')}}>Shop Men</button>
+            <button onClick={()=>{router.push('/women')}}>Shop Women</button>
           </div>
         </div>
       </div>
@@ -44,7 +46,7 @@ export default function Home() {
         <>
           <h2>As Cozy as a Sheep. And Much Easier to Wrap.</h2>
           <p>Fully Fluff-graded shoes and apparel for the entire family can only mean one thing: it is never been easier to give the gift of comfort.</p>
-          <button>SHOP NOW</button>
+          <button onClick={()=>{router.push('/men')}}>SHOP NOW</button>
         </>
       </SectionBreaker>
 
@@ -56,7 +58,7 @@ export default function Home() {
         <>
           <h2>As Cozy as a Sheep. And Much Easier to Wrap.</h2>
           <p>Fully Fluff-graded shoes and apparel for the entire family can only mean one thing: it is never been easier to give the gift of comfort.</p>
-          <button>SHOP NOW</button>
+          <button onClick={()=>{router.push('/men')}}>SHOP NOW</button>
         </>
       </SectionBreaker>
     </div>

@@ -9,7 +9,7 @@ function Filter() {
     return (
         <div className='filter_container'>
             <div className='filter_title'>
-                <h1>Shop Men</h1>
+                <h1>Categories</h1>
                 <button className='filter_btn'>FILTERS<TuneIcon /></button>
             </div>
             <div className='filter_options'>

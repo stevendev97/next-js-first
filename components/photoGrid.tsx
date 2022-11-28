@@ -26,7 +26,10 @@ function PhotosGrid({pix}:props){
             return (<PhotoWithButton picture={pic}>
             <button className={styles.buttons} onClick={()=>{
                 if(pic.title === "Become Our Member"){
-                    router.push('/register')}
+                    router.push('/register')
+                } else{
+                    router.push(`/${pic.title.split(" ")[1].toLowerCase()}`)
+                }
                 }}>
             {pic.title}
             </button>
@@ -39,7 +42,10 @@ function PhotosGrid({pix}:props){
             return (<PhotoWithButton picture={pic}>
             <button className={styles.buttons} onClick={()=>{
                 if(pic.title === "Become Our Member"){
-                    router.push('/register')}
+                    router.push('/register')
+                } else{
+                    router.push(`/${pic.title.split(" ")[1].toLowerCase()}`)
+                }
                 }}>
             {pic.title}
             </button>

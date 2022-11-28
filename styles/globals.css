@@ -295,6 +295,7 @@ button:hover {
 
 .filter_container {
   margin: 0;
+  border-right: 1px solid lightgrey;
 }
 
 .filter_title {
@@ -434,3 +435,18 @@ button:hover {
 }
 
 
+/* Men page Styling Starts Here */
+/* Men page Styling Starts Here */
+/* Men page Styling Starts Here */
+/* Men page Styling Starts Here */
+.detailed_pix_wrapper{
+  /* background-color: red; */
+  display:flex;
+}
+.detail_pix_grid{
+  /* display: inline-block; */
+  /* border: 1px solid blue; */
+  margin-bottom: 10%;;
+  float: right;
+}
+/* .detail_pix_grid */
