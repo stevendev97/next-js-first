@@ -246,11 +246,10 @@ button:hover {
 .sell__tab {
   padding: 20px;
   width: 100%;
-
   display: flex;
   justify-content: center;
+  font-weight: 500;
   align-items: center;
-
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -262,7 +261,6 @@ button:hover {
     margin: 0;
     padding: 0;
     box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
-
     display: flex;
     flex-direction: column;
     
@@ -272,7 +270,6 @@ button:hover {
   .sell__tab {
     padding: 1.5rem;
     width: 100%;
-  
     display: flex;
     justify-content: center;
     align-items: center;
@@ -298,3 +295,24 @@ button:hover {
 .footer-wrapper {
   clear: both;
 }
+
+/* Seller Main Styling Starts Here */
+/* Seller Main Styling Starts Here */
+/* Seller Main Styling Starts Here */
+/* Seller Main Styling Starts Here */
+
+.seller_main_wrapper .photoGrid_wrapper{
+  display: flex;
+  justify-content: center;
+  padding: 0 2%;
+}
+
+.seller_main_wrapper .seller_main_title{
+  margin: 0px;
+  padding-top: 2%;
+  width:80%;
+  float: right;
+  text-align: center;
+}
+
+
