@@ -4,13 +4,13 @@ import PhotoWithButton from "./photoWithButton";
 import { useRouter } from "next/router";
 
 type props = {
-    pix: {url: string, label: string, title:string, age:number}[];
+    pix: {url: string, label: string, title:string, price:number|null}[];
 };
 
 function PhotosGrid({pix}:props){
     const router = useRouter();
     const [cur_label, setCur_label] = useState('MEN');
-    const labels: string[] = ["MEN", "WOMEN", "SIGN UP"]
+    const labels: string[] = ["MEN", "WOMEN", "SIGN UP"];
     return (
         <div className="photoGrid_wrapper">
         <div className={styles.choice_labels}>
@@ -23,7 +23,7 @@ function PhotosGrid({pix}:props){
         </div>
         <br/>
         {pix.filter((pic)=>{return pic.label === cur_label}).map((pic)=>{
-            return (<PhotoWithButton picture={pic}>
+            return (<PhotoWithButton picture={pic} place="main">
             <button className={styles.buttons} onClick={()=>{
                 if(pic.title === "Become Our Member"){
                     router.push('/register')
@@ -39,7 +39,7 @@ function PhotosGrid({pix}:props){
         }
         <div className={styles.photos_grid_container}>
         {pix.map((pic)=>{
-            return (<PhotoWithButton picture={pic}>
+            return (<PhotoWithButton picture={pic} place="main">
             <button className={styles.buttons} onClick={()=>{
                 if(pic.title === "Become Our Member"){
                     router.push('/register')

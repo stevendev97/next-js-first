@@ -317,6 +317,10 @@ button:hover {
   cursor: pointer;
 }
 
+.filter_options span{
+  text-decoration: underline;
+}
+
 .filter_btn {
   background-color: white;
   border: none;
@@ -432,6 +436,7 @@ button:hover {
   width:80%;
   float: right;
   text-align: center;
+  text-decoration: underline;
 }
 
 
@@ -445,8 +450,87 @@ button:hover {
 }
 .detail_pix_grid{
   /* display: inline-block; */
-  /* border: 1px solid blue; */
-  margin-bottom: 10%;;
+  
+  margin-bottom: 10%;
   float: right;
 }
 /* .detail_pix_grid */
+
+/* Seller upload page Styling Starts Here */
+/* Seller upload page Styling Starts Here */
+/* Seller upload page Styling Starts Here */
+/* Seller upload page Styling Starts Here */
+.upload_page_wrapper{
+  /* background-color: red; */
+  display:flex;
+}
+.uploading_form{
+  /* display: inline-block; */
+  /* background-color: lightyellow; */
+  margin-bottom: 10%;
+  width: 80%;
+  display: flex;
+  align-items: center;
+}
+
+
+/* Popup page Styling Starts Here */
+/* Popup page Styling Starts Here */
+/* Popup page Styling Starts Here */
+/* Popup page Styling Starts Here */
+
+.pop_up_wrapper{
+  /* background-color: red; */
+  display:flex;
+  width:100%;
+  height:100%;
+  background-color: transparent;
+  position:absolute;
+
+} 
+.pop_up_wrapper .pop_up{
+  margin:15% 25%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 50%;
+  border: 3px solid black;
+  z-index: 1;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  background-color: white;
+}
+
+.pop_up_wrapper img{
+  width: 3em;
+  margin-right: 3em;
+  margin-left: 3em;
+  margin-top: 5em;
+  margin-bottom: 7.5em;
+}
+
+.pop_up_wrapper h3{
+  margin-right: 3em;
+  /* margin-left: 3em; */
+  margin-top: 5em;
+  margin-bottom: 7em;
+}
+
+.pop_up_wrapper .continue-btn{
+  font-size: 10px;
+  width: 20em;
+  height: 5em;
+  position: absolute;
+  bottom: 1em;
+  left: 6em;
+}
+
+.pop_up_wrapper .all-items-btn{
+  font-size: 10px;
+  width: 20em;
+  height: 5em;
+  position: absolute;
+  bottom: 1em;
+  right: 6em;
+}

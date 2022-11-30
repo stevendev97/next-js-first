@@ -1,13 +1,14 @@
 import React from 'react';
 import styles from "../styles/photos.module.scss";
 
-type props = {picture:{url: string, label: string, title:string, age:number},
+type props = {picture:{url: string, label: string, title:string, price:number|null},
+    place: string,
     children: React.ReactNode,
 };
 
 
-function PhotoWithButton({picture,children}:props){
-    return (<div className={styles.grid_item}>
+function PhotoWithButton({picture,place, children}:props){
+    return (<div className={place === "main" ? styles.grid_item : styles.seller_grid_item}>
         <img src={picture.url} alt={picture.title} className={styles.img}/>
         {children}
     </div>);

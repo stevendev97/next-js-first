@@ -1,0 +1,48 @@
+.upload__form__wrapper {
+    height: 100vh;
+    width: 100vw;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 3px solid black; */
+}
+
+.form__header {
+    width: 450px;
+}
+
+.upload__form {
+    width: 450px;
+   
+}
+
+
+.upload__form .description {
+    width: 100%;
+    height: 120px;
+}
+
+.upload__form button{
+    margin-right: 22%;
+}
+
+.upload__form select {
+    margin-right: 7%;
+}
+
+.upload__form .error_message {
+    /* width: 60%; */
+    margin-top: .5rem;
+    font-size: medium;
+    color: red;
+}
+
+.upload__form .last_error_message {
+    /* width: 60%; */
+    margin-top: .5rem;
+    margin-left: .5rem;
+    font-size: medium;
+    color: red;
+}
