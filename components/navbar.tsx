@@ -15,8 +15,10 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { styled } from '@mui/system'
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import Style from '../componentsType/customInputStyle';
 import loginContext from '../contexts/loginContext';
+import {useShoppingCart} from '../contexts/cartContext';
 
 
 const pages = ['MEN', 'WOMEN', 'KIDS', 'SALE', 'GIFTS'];
@@ -29,6 +31,7 @@ export default function Navbar() {
     const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
     const [isLogin, setIsLogin] = useState<boolean>(false)
     const {loginStatus, setLoginStatus} = useContext(loginContext);
+    const {cartQuantity} = useShoppingCart()
 
     const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorElNav(event.currentTarget);
@@ -146,7 +149,7 @@ export default function Navbar() {
                         Seller Entry
                         </StyledButton>
                         </Link>
-                        {loginStatus ? <StyledButton size="small" sx={{color:"white", mb:1.75, mr:0, py: 0, px:1, fontSize: '11px'}}
+                        {loginStatus ? <StyledButton size="small" sx={{color:"white", mb:1.75, mr:1, py: 0, px:1, fontSize: '11px'}}
                         onClick={()=>{setLoginStatus(false);}}>
                         logout
                         </StyledButton>
@@ -154,7 +157,7 @@ export default function Navbar() {
                         <>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <PersonIcon sx={{ display: { md: 'flex' }, mr: 1 }} className='nav_icon' />
+                                <PersonIcon sx={{ display: { md: 'flex' }, mr: 2}} className='nav_icon' />
                             </IconButton>
                         </Tooltip>
                         <Menu
@@ -189,6 +192,12 @@ export default function Navbar() {
                             }
                         </Menu>
                         </>}
+                        <Link href="/cart">
+                        <span className="cart_icon">
+                        <ShoppingBasketIcon  sx={{mr:1, ml:1, mb:2, fontSize:"26px"}}/> 
+                        <span className="nav_cart_chars nav_basketCount">{cartQuantity}</span>  
+                        </span>      
+                        </Link>        
                     </Box>
                     
                 </Toolbar>

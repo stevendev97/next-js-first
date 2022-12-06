@@ -1,3 +1,4 @@
+import React, {useState} from 'react';
 import Head from 'next/head'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import PhotosGrid from '../components/photoGrid'
@@ -6,14 +7,16 @@ import SectionBreaker from '../components/section_breaker';
 import { useRouter } from "next/router";
 
 
-const pix: {url: string, label: string, title:string, price:number|null}[]= [
-  {url: "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/451706/item/goods_35_451706.jpg?width=750", label: "MEN", title:"Shop Men", price:null},
-  {url:"https://im.uniqlo.com/global-cms/spa/res72e1bb01171b2a38ff292f6dadde0a6ffr.jpg", label:"WOMEN", title:"Shop Women",price:null},
-  {url:"https://im.uniqlo.com/global-cms/spa/res963e03ce1557a01b296cbf4a4c210766fr.jpg", label:"SIGN UP", title:"Become Our Member", price:null}
+const pix: {id:number, image: string, label: string, title:string, price:string|null}[]= [
+  {id:0, image: "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/451706/item/goods_35_451706.jpg?width=750", label: "MEN", title:"Shop Men", price:null},
+  {id:0, image:"https://im.uniqlo.com/global-cms/spa/res72e1bb01171b2a38ff292f6dadde0a6ffr.jpg", label:"WOMEN", title:"Shop Women",price:null},
+  {id:0, image:"https://im.uniqlo.com/global-cms/spa/res963e03ce1557a01b296cbf4a4c210766fr.jpg", label:"SIGN UP", title:"Become Our Member", price:null}
 ]
 
 export default function Home() {
   const router = useRouter();
+  const [cartItems, setCartItems] = useState<{id:number,title:string, image:string, price:string}[]>([]);
+  
   return (
     <div>
       <Head>

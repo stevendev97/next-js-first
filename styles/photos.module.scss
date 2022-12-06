@@ -159,6 +159,18 @@
         color: black;
         text-shadow: 1px 1px 3px lightgrey;
     }
+    .buttons{
+        position: absolute;
+        top: 0;
+        right:0;
+        width: 25%;
+        height: 7%;
+        font-size: 12px;
+        gap: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
 @media (max-width: 870px){
     display:none;

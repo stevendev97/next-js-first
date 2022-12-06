@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from "../styles/photos.module.scss";
 
-type props = {picture:{url: string, label: string, title:string, price:number|null},
+type props = {picture:{id: number, image: string, label: string, title:string, price:string|null},
     place: string,
     children: React.ReactNode,
 };
@@ -9,7 +9,7 @@ type props = {picture:{url: string, label: string, title:string, price:number|nu
 
 function PhotoWithButton({picture,place, children}:props){
     return (<div className={place === "main" ? styles.grid_item : styles.seller_grid_item}>
-        <img src={picture.url} alt={picture.title} className={styles.img}/>
+        <img src={picture.image} alt={picture.title} className={styles.img}/>
         {children}
     </div>);
 }

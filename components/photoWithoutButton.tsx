@@ -1,18 +1,20 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import styles from "../styles/productPhoto2.module.scss";
+import {useShoppingCart} from '../contexts/cartContext';
 
 type props = {pic:
-    {url: string, id: number, title:string, price:string},
+    {image: string, id: number, title:string, price:string, label:string},
 };
 
 function PhotoWithoutButton({pic}: props){
+    const {increaseQuantity} = useShoppingCart()
     const [clickedColor, setClickedColor] = useState<string>('');
     const [clickedSize, setClickedSize] = useState<string>('');
-    const colors: string[] = ["blue", "red", 'green', 'white', 'grey', 'purple', "brown", 'yellow', 'black', "pink"];
+    const colors: string[] = ["lightblue", "#d97e93", '#86bf8c', 'white', 'lightgrey', '#bf8fcf', "#4d3534", 'lightyellow', '#2b2a2a', "lightpink"];
     const sizes: string[] = ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL'];
     return (<>
         <div className={styles.grid_item}>
-        <img src={pic.url} alt={pic.title} className={styles.img}/>
+        <img src={pic.image} alt={pic.title} className={styles.img}/>
         <p className={styles.title}>{pic.title}</p>
         <p className={styles.age}>{pic.price}</p>
         <div className={styles.color_grid}>
@@ -26,7 +28,12 @@ function PhotoWithoutButton({pic}: props){
                {sizes.map((size)=>{return <div className={size === clickedSize ? styles.clicked_square 
                 : styles.square} onClick={()=>{setClickedSize(size)}}>{size}</div>})}
                </div>
-            </div>
+               <button onClick={()=>{
+                increaseQuantity(pic.id, pic.title, pic.price, pic.image)}}
+                // setCartItems([...cartItems, {id:pic.id, image:pic.image, title:pic.title, price:pic.price}]);
+                // console.log(cartItems);
+               >Add</button>
+        </div>
         </>);
 }
 

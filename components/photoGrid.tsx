@@ -4,7 +4,7 @@ import PhotoWithButton from "./photoWithButton";
 import { useRouter } from "next/router";
 
 type props = {
-    pix: {url: string, label: string, title:string, price:number|null}[];
+    pix: {id: number, image: string, label: string, title:string, price:string|null}[];
 };
 
 function PhotosGrid({pix}:props){
