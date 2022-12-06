@@ -13,9 +13,9 @@ export default function InBagIndividual({id,title,image,price, quantity}: props)
            <div className={styles.check_info}>
            <p className={styles.check_title}>{title}</p>
            <div className={styles.quantity_container}>
-           <button className={styles.plus_minus_btn} onClick={()=>{increaseQuantity(id,title,image,price)}}><AddIcon /></button>
-           <div> {quantity}</div>
            <button className={styles.plus_minus_btn} onClick={()=>{decreaseQuantity(id)}}><RemoveIcon/></button>
+           <div> {quantity}</div>
+           <button className={styles.plus_minus_btn} onClick={()=>{increaseQuantity(id,title,image,price)}}><AddIcon /></button>
            </div>
            <p className={styles.checkout_price}>
                     <strong>{price}</strong>
