@@ -5,7 +5,7 @@ import type {RootState} from '../redux/store';
 import {store} from '../redux/store';
 import { useSelector, useDispatch } from 'react-redux'
 import {set_up} from '../redux_reducer/productsSlice';
-import { connect } from "react-redux"
+import { connect } from "react-redux";
 
 type props = {
     all_items: {id:number, image: string, label: string, title:string, price:string}[],
@@ -22,8 +22,8 @@ const demo: {id: number, image: string, label: string, title:string, price:strin
 ]
 // {all_items}: props
 function DetailPhotosGrid({all_items}: props){
-    const items = useSelector((state: RootState) => state.products.all_products)
-    console.log(items);
+    // const items = useSelector((state: RootState) => state.products.all_products);
+    // console.log(items);
     // const dispatch = useDispatch()
     // useEffect(()=>{
     //   dispatch(set_up(demo));

@@ -6,10 +6,15 @@ import {
     Row,
     Col
 } from "styled-bootstrap-grid";
-import {ProductImg, Price, Button} from '../componentsType/detailStyle';
+import {ProductImg, Price, Button} from '../../componentsType/detailStyle';
 import Select from "react-select";
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import {useRouter} from 'next/router';
+import type {RootState} from '../../redux/store';
+import { connect } from "react-redux";
+import {useShoppingCart} from '../../contexts/cartContext';
 
+ 
 const customGrid = {
     breakpoints: {
       xl: 1400
@@ -20,12 +25,18 @@ const customGrid = {
       }
     }
 };
+function getProductId(str: string|string[]|undefined){
+   if(typeof str === "string"){
+    return parseInt(str);
+   }
+}
 
-const title = "Running Shoes";
-const sizes = [{ value: "7", label: "7" },
-{ value: "8", label: "8" },
-{ value: "9", label: "9" },
-{ value: "10", label: "10" }];
+const sizes = [{ value: "XS", label: "XS" },
+{ value: "S", label: "S" },
+{ value: "M", label: "M" },
+{ value: "L", label: "L" },
+{ value: "XL", label: "XL" },
+{ value: "XXL", label: "XXL" }];
 const colors = [
     { value: "Black", label: "Black" },
     { value: "White", label: "White" },
@@ -33,7 +44,20 @@ const colors = [
     { value: "Purple", label: "Purple" }];
 
 
-export default function ProductDetail(){
+type props = {
+    all_items: {id:number, image: string, label: string, title:string, price:string}[],
+}
+// {id, title, image, price} = props
+// using redux
+// {all_items}: props
+// const items = useSelector((state: RootState) => state.products.all_products);
+// console.log(items);
+
+function ProductDetail({all_items}: props){
+const router = useRouter();
+const {increaseQuantity} = useShoppingCart()
+const productId = getProductId(router.query.productId);
+const {id, image, label, title, price} = all_items.filter((item)=>{return item.id === productId})[0]
 return (<div className="product_detail_wrapper">
 <GridThemeProvider gridTheme={customGrid}>
 {/* <BaseCSS css={customCSS}> */}
@@ -57,13 +81,13 @@ return (<div className="product_detail_wrapper">
               }}
             >
               <ProductImg
-                src="https://cdn.allbirds.com/image/upload/f_auto,q_auto,w_853,b_rgb:f5f5f5/cms/6kgfUpOcNV92xLt7zyGjyx/16ec36c581cc8931c0878d43c2541748/TD1MOBS_SHOE_LEFT_GLOBAL_MENS_TREE_DASHERS_OBSIDIAN.png"
+                src={image}
                 alt={title}
               />
             </Col>
         
         <Col md={5}>
-              <Price price="$12.99" />
+              <Price price={price} />
 
               <label htmlFor="sizes">Select size</label>
               <Select
@@ -77,6 +101,15 @@ return (<div className="product_detail_wrapper">
                     height: "2.25rem"
                   })
                 }}
+                theme={(theme) => ({
+                  ...theme,
+                  borderRadius: 0,
+                  colors: {
+                    ...theme.colors,
+                    primary25: 'grey',
+                    primary: 'black',
+                  },
+                })}
               />
 
               <label htmlFor="colors">Select color</label>
@@ -91,9 +124,18 @@ return (<div className="product_detail_wrapper">
                     height: "2.25rem"
                   })
                 }}
+                theme={(theme) => ({
+                  ...theme,
+                  borderRadius: 0,
+                  colors: {
+                    ...theme.colors,
+                    primary25: 'grey',
+                    primary: 'black',
+                  },
+                })}
               />
-
-              <div style={{ display: "flex", justifyContent: "center" }}>
+              <div onClick={()=>{increaseQuantity(id, title, price, image)}} 
+              style={{display: "inline-block", justifyContent: "center", width:"100%", height: "2.25rem", marginTop: "1.5rem"}}>
                 <Button
                   label="Add to cart"
                   icon={<ShoppingBasketIcon />}
@@ -123,3 +165,9 @@ return (<div className="product_detail_wrapper">
 </GridThemeProvider>
 </div>);
 };
+
+const mapStateToProps = (state: RootState) => ({
+    all_items: state.products.all_products,
+})
+
+export default connect(mapStateToProps)(ProductDetail);

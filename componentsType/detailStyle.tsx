@@ -45,15 +45,9 @@ const StyledButton = styled.button`
   justify-content: center;
   align-items: center;
   height: 2.25rem;
-  margin-top: 1.5rem;
+  width:100%;
   padding: 0 60px;
   font-size: 0.8rem;
-  /* text-transform: uppercase; */
-  /* color: #fff;
-  background-color: #0fbf9c; */
-  /* border: none; */
-  /* border-radius: 0.25rem; */
-
   svg {
     margin-right: 15px;
   }

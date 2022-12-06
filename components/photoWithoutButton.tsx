@@ -1,6 +1,7 @@
 import React, {useState, useContext} from 'react';
 import styles from "../styles/productPhoto2.module.scss";
 import {useShoppingCart} from '../contexts/cartContext';
+import { useRouter } from "next/router";
 
 type props = {pic:
     {image: string, id: number, title:string, price:string, label:string},
@@ -10,11 +11,12 @@ function PhotoWithoutButton({pic}: props){
     const {increaseQuantity} = useShoppingCart()
     const [clickedColor, setClickedColor] = useState<string>('');
     const [clickedSize, setClickedSize] = useState<string>('');
+    const router = useRouter();
     const colors: string[] = ["lightblue", "#d97e93", '#86bf8c', 'white', 'lightgrey', '#bf8fcf', "#4d3534", 'lightyellow', '#2b2a2a', "lightpink"];
     const sizes: string[] = ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL'];
     return (<>
         <div className={styles.grid_item}>
-        <img src={pic.image} alt={pic.title} className={styles.img}/>
+        <img src={pic.image} alt={pic.title} className={styles.img} onClick={()=>{router.push(`men/${pic.id}`)}}/>
         <p className={styles.title}>{pic.title}</p>
         <p className={styles.age}>{pic.price}</p>
         <div className={styles.color_grid}>
