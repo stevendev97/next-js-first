@@ -24,10 +24,10 @@ const demo: {id: number, image: string, label: string, title:string, price:strin
 function DetailPhotosGrid({all_items}: props){
     const items = useSelector((state: RootState) => state.products.all_products)
     console.log(items);
-    const dispatch = useDispatch()
-    useEffect(()=>{
-      dispatch(set_up(demo));
-    }, []);
+    // const dispatch = useDispatch()
+    // useEffect(()=>{
+    //   dispatch(set_up(demo));
+    // }, []);
     let i = 0;
     return (
         <div className={styles.photos_grid_container}>
