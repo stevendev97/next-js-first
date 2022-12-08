@@ -13,8 +13,7 @@ const initialState: ProductsState = {
   {id:4, image:"https://image.s5a.com/is/image/saks/0400018051357_LIGHTBLUE?wid=534&hei=712&qlt=90&resMode=sharp2&op_usm=0.9,1.0,8,0", label:"SIGN UP", title:"T-shirt", price:"$20"},
   {id:5, image:"https://image.s5a.com/is/image/saks/0400017965956_WHITE?wid=534&hei=712&qlt=90&resMode=sharp2&op_usm=0.9,1.0,8,0", label:"SIGN UP", title:"T-shirt", price:"$20"},
   {id:6, image:"https://image.s5a.com/is/image/saks/0400017900854_WHITE?wid=534&hei=712&qlt=90&resMode=sharp2&op_usm=0.9,1.0,8,0", label:"SIGN UP", title:"T-shirt", price:"$20"},
-  // {id:7, image:"https://im.uniqlo.com/global-cms/spa/res963e03ce1557a01b296cbf4a4c210766fr.jpg", label:"SIGN UP", title:"Fleece", price:"$20"}
-  {id:7, image:"../images/black_shoes.png", label:"SIGN UP", title:"Shoes", price:"$20"}
+  {id:7, image:"https://im.uniqlo.com/global-cms/spa/res963e03ce1557a01b296cbf4a4c210766fr.jpg", label:"SIGN UP", title:"Fleece", price:"$20"}
 ],
 }
 

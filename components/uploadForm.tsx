@@ -17,6 +17,17 @@ type props = {
     append_product: any
 }
 
+function getPic(url: string){
+    const urlArray = url.split('\\');
+   return `/${urlArray[urlArray.length-1]}`;
+}
+const handleReset = (resetForm: any) => {
+    if (window.confirm('Reset?')) {
+      resetForm();
+    }
+  };
+  
+
 function Upload({all_items, append_product}: props) {
     interface formValues {
         picture: string,
@@ -35,7 +46,7 @@ function Upload({all_items, append_product}: props) {
     const dispatch = useDispatch()
 
     const categories:string[] = ["Women's Shoes", "Women's Apparel", "Men's Shoes", "Men's Apparel"];
-    const sizes:string[] = ["XS", "S", "M", "L", "XL", "XXL", "XXXL"];
+    const sizes:string[] = ["XS", "S", "M", "L", "XL", "XXL", "XXXL",'7','8','9','10','11','12','13','14'];
     const colors: string[] = ["Blue", "Red", "Green", "White", "Grey", "Purple", "Brown", "Yellow", "Black"];
     const dollar_signs: string[] = ["€","$","￡","￥"];
 
@@ -110,7 +121,8 @@ function Upload({all_items, append_product}: props) {
                     // }
                     // console.log(data);
                     // props.setFieldValue('picture', e.target.files[0])
-                    dispatch(append_product({id:new Date().valueOf(), image: values.picture, label: values.category
+                    const picPath = getPic(values.picture);
+                    dispatch(append_product({id:new Date().valueOf(), image: picPath, label: values.category
                         , title:values.description, price:`${values.sign}${values.amount}`}));
                     console.log(values);
                 }}
@@ -133,7 +145,9 @@ function Upload({all_items, append_product}: props) {
                                     reader.readAsDataURL(e.target.files[0]); 
                                     reader.onload = ((e) => {
                                         setImgSrc(e.target?.result)
-                                    })
+                                    });
+                                    props.handleChange(e);
+                                    // props.setFieldValue("picture", `${e.target.value.split('\\')[-1]}`);
                                 }
                             }}
                             // onChange={(e)=>{if (e.target.files) {
@@ -147,7 +161,7 @@ function Upload({all_items, append_product}: props) {
                             // //    };
                             // reader.readAsDataURL(files[0]);
                             
-                            // // props.setFieldValue("picture", reader);
+                            // props.setFieldValue("picture", reader);
 
                             // }
                             onBlur={props.handleBlur}
@@ -314,7 +328,7 @@ function Upload({all_items, append_product}: props) {
                             <ErrorMessage name='amount' />
                         </span>
                         <hr/>
-                        <button type="reset">Reset</button>
+                        <button type="reset" onClick={handleReset.bind(null, props.resetForm)}>Reset</button>  {/* reset picture entry? */}
                         <button type="submit" onClick={()=>{setPopup(true);}}>Upload</button>
                     </form>
                 )}
