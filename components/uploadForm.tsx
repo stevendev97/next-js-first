@@ -125,16 +125,16 @@ function Upload({all_items, append_product}: props) {
                         <br/>
                         <input
                             type="file"
-                            // accept="image/gif,image/jpeg,image/jpg,image/png"
+                            accept="image/gif,image/jpeg,image/jpg,image/png"
                             // multiple
                             onChange={(e) => {
                                 let reader = new FileReader();
-                                
-                                    reader.readAsDataURL(e.target.files[0]); //<-- I dunno the type but it worksclea
+                                if(e.target.files){
+                                    reader.readAsDataURL(e.target.files[0]); 
                                     reader.onload = ((e) => {
                                         setImgSrc(e.target?.result)
                                     })
-                                
+                                }
                             }}
                             // onChange={(e)=>{if (e.target.files) {
                             
