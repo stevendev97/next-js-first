@@ -607,3 +607,17 @@ button:hover {
   margin-top: 1.5rem;
 }
 
+/* Upload preview Styling Starts Here */
+/* Upload preview  page Styling Starts Here */
+/* Upload preview  page Styling Starts Here */
+/* Upload preview page Styling Starts Here */
+.uploaded-img{
+  margin: 10px;
+  width: 120px;
+  
+
+}
+
+.uploaded-img img{
+  width:100%;
+}
