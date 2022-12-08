@@ -26,10 +26,11 @@ const demo: {id: number, image: string, label: string, title:string, price:strin
 // const pix: {url: string, label: string, title:string, age:number}[]= [];
 function SellerMain({all_items, set_up, delete_product}: props){
     // const items = useSelector((state: RootState) => state.products.all_products)
+    console.log(all_items);
     const dispatch = useDispatch()
-    useEffect(()=>{
-      dispatch(set_up(demo));
-    }, []);
+    // useEffect(()=>{
+    //   dispatch(set_up(demo));
+    // }, []);
 
 // console.log(items);
  return <div className="seller_main_wrapper">
@@ -49,6 +50,9 @@ return (<PhotoWithButton picture={pic} place="seller_main">
 }
 </div>
 </div>
+{/* <div>
+    <img src="../../images/black_shoes.png"/>
+</div> */}
 </div>
 }
 

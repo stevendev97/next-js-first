@@ -1,15 +1,23 @@
-import { Formik, ErrorMessage } from 'formik'
+import { Formik, ErrorMessage, validateYupSchema } from 'formik'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import type {RootState} from '../redux/store';
+import {append_product} from '../redux_reducer/productsSlice';
 import styles from '../styles/upload.module.css'
 import * as Yup from 'yup'
 import { useState, useContext } from 'react';
 import loginContext from '../contexts/loginContext';
 import PopupContext from '../contexts/popupContext';
 import { Diversity1 } from '@mui/icons-material';
+import {useDispatch} from 'react-redux'
+import { connect } from "react-redux"
 
+type props = {
+    all_items: {id:number, image: string, label: string, title:string, price:string}[],
+    append_product: any
+}
 
-export default function Upload() {
+function Upload({all_items, append_product}: props) {
     interface formValues {
         picture: string,
         description: string,
@@ -19,11 +27,12 @@ export default function Upload() {
         sign: string,
         amount: number,
     }
-
-    const [usersInfos, setUsersInfos] = useState<formValues[]>([])
+    
+    // const [usersInfos, setUsersInfos] = useState<formValues[]>([])
     const {popup, setPopup} = useContext(PopupContext);
     const router = useRouter();
     const {loginStatus, setLoginStatus} = useContext(loginContext);
+    const dispatch = useDispatch()
 
     const categories:string[] = ["Women's Shoes", "Women's Apparel", "Men's Shoes", "Men's Apparel"];
     const sizes:string[] = ["XS", "S", "M", "L", "XL", "XXL", "XXXL"];
@@ -70,7 +79,7 @@ export default function Upload() {
                     sign: '',
                     amount: 0.00,
                 }} onSubmit={async (values: formValues, { resetForm }): Promise<void> => {
-                    setUsersInfos(prev => [...prev, values])
+                    // setUsersInfos(prev => [...prev, values])
                     resetForm({
                         values: {
                             picture:'',
@@ -82,22 +91,26 @@ export default function Upload() {
                             amount: 0.00,
                         }
                     })
-                    const response = await fetch('http://localhost:8081/users', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        // username: values.email,
-                        // password: values.password,
-                        }),
-                    });
-                    const data = await response.json();
-                    if (data.succeess) {
-                        setLoginStatus(true);
-                        router.replace('/');
-                    }
-                    console.log(data);
+                    // const response = await fetch('http://localhost:8081/users', {
+                    // method: 'POST',
+                    // headers: {
+                    //     'Content-Type': 'application/json',
+                    // },
+                    // body: JSON.stringify({
+                    //     // username: values.email,
+                    //     // password: values.password,
+                    //     }),
+                    // });
+                    // const data = await response.json();
+                    // if (data.succeess) {
+                    //     setLoginStatus(true);
+                    //     router.replace('/');
+                    // }
+                    // console.log(data);
+                    // props.setFieldValue('picture', e.target.files[0])
+                    dispatch(append_product({id:new Date().valueOf(), image: values.picture, label: values.category
+                        , title:values.description, price:`${values.sign}${values.amount}`}));
+                    console.log(values);
                 }}
 
                 validationSchema={validate}
@@ -114,6 +127,21 @@ export default function Upload() {
                             accept="image/gif,image/jpeg,image/jpg,image/png"
                             multiple
                             onChange={props.handleChange}
+                            // onChange={(e)=>{if (e.target.files) {
+                            
+                              
+                            //   let files = e.target.files;
+                            //   console.log(files);
+                            //   let reader = new FileReader();
+                            // //   reader.onload = r => {
+                            // //        console.log(r.target.result);
+                            // //    };
+                            // reader.readAsDataURL(files[0]);
+                            
+                            // // props.setFieldValue("picture", reader);
+
+                            // }
+                            
                             onBlur={props.handleBlur}
                             value={props.values.picture}
                             name="picture"
@@ -121,6 +149,7 @@ export default function Upload() {
                         <div className={styles.error_message}>
                             <ErrorMessage name='picture' />
                         </div>
+                        {/* {props.values.picture && <img src={`$../../images/{props.values.picture.split('//')[-1]}`}/>} */}
                         <hr/>
                         <label>
                             DESCRIPTION
@@ -278,3 +307,15 @@ export default function Upload() {
         </div>
     )
 }
+
+const mapStateToProps = (state: RootState) => ({
+    all_items: state.products.all_products,
+});
+
+const mapDispatchToProps = (dispatch: any) => ({
+    append_product: append_product
+});
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Upload);
