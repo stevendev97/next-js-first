@@ -14,6 +14,7 @@ import { useRouter } from "next/router";
 import { RouterRounded } from "@mui/icons-material";
 import Link from 'next/link';
 import loginContext from '../contexts/loginContext';
+import {mutate} from 'swr';
 
 type props = {
     role: string;
@@ -43,34 +44,52 @@ function Login({role}: props) {
                 </Typography>
                 </>
                 }
-                <form onSubmit={async (e) => {
-                        e.preventDefault()
-                        let formData = new FormData();
-                        formData.append('username', `${name}`);
-                        formData.append('password', `${password}`);
-                        const response = await fetch('http://localhost:8081/login', {
-                            method: 'POST',
-                            body: formData,
-                        })
-                        const data = await response.json()
-                
-                        if (data.succeess) {
-                            setLoginStatus(true);
-                            // setLoginFailed(false);
-                            // if (typeof window !== "undefined") {
+                <form onSubmit={(e)=>{
+                    e.preventDefault();
+                    // async (e) => {
 
-                            //     localStorage.setItem('user', `${name}`);
+                        // e.preventDefault()
+                        // let formData = new FormData();
+                        // formData.append('username', `${name}`);
+                        // formData.append('password', `${password}`);
+                        // const response = await fetch('http://localhost:8081/login', {
+                        //     method: 'POST',
+                        //     body: formData,
+                        // })
+                        // const data = await response.json()
+                
+                        // if (data.succeess) {
+                        //     setLoginStatus(true);
+                        //     // setLoginFailed(false);
+                        //     // if (typeof window !== "undefined") {
+
+                        //     //     localStorage.setItem('user', `${name}`);
                                 
-                            // }
+                        //     // }
                             
+                        //     router.replace('/');
+                        // }else{
+                        //     setLoginFailed(true);
+                        //     setName('');
+                        //     setPassword('');
+                        // }
+
+                        // console.log(data)
+
+                        if(name === "Lily" && password === "123"){
+                            // setLoginStatus(true);
+                            window.localStorage.setItem("user", JSON.stringify(name));
+                            mutate("user", name);
+                            console.log('ok');
                             router.replace('/');
-                        }else{
+                        } else{
                             setLoginFailed(true);
                             setName('');
                             setPassword('');
                         }
-                        console.log(data)
-                        }}>
+                    }
+                        // }
+                    }>
                     <StyledTextField
                         variant="outlined"
                         margin="normal"

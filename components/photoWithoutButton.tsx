@@ -16,7 +16,8 @@ function PhotoWithoutButton({pic}: props){
     const sizes: string[] = ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL'];
     return (<>
         <div className={styles.grid_item}>
-        <img src={pic.image} alt={pic.title} className={styles.img} onClick={()=>{router.push(`men/${pic.id}`)}}/>
+        <img src={pic.image} alt={pic.title} className={styles.img} onClick={()=>{router.push(`men/${pic.id}`)}}/>   
+        {/* default men->add if later */}
         <p className={styles.title}>{pic.title}</p>
         <p className={styles.age}>{pic.price}</p>
         <div className={styles.color_grid}>

@@ -7,7 +7,8 @@ export interface ProductsState {
 }
 
 const initialState: ProductsState = {
-  all_products: [{id:1, image: "https://image.s5a.com/is/image/saks/0400018051658_CHARCOAL?wid=534&hei=712&qlt=90&resMode=sharp2&op_usm=0.9,1.0,8,0", label: "MEN", title:"Vest", price:"$20"},
+  all_products: 
+  [{id:1, image: "https://image.s5a.com/is/image/saks/0400018051658_CHARCOAL?wid=534&hei=712&qlt=90&resMode=sharp2&op_usm=0.9,1.0,8,0", label: "MEN", title:"Vest", price:"$20"},
   {id:2, image:"https://image.s5a.com/is/image/saks/0400018051634_WHITE?wid=534&hei=712&qlt=90&resMode=sharp2&op_usm=0.9,1.0,8,0", label:"WOMEN", title:"Tank",price:"$20"},
   {id:3, image:"https://image.s5a.com/is/image/saks/0400017965918_WHITE?wid=534&hei=712&qlt=90&resMode=sharp2&op_usm=0.9,1.0,8,0", label:"SIGN UP", title:"T-shirt", price:"$20"},
   {id:4, image:"https://image.s5a.com/is/image/saks/0400018051357_LIGHTBLUE?wid=534&hei=712&qlt=90&resMode=sharp2&op_usm=0.9,1.0,8,0", label:"SIGN UP", title:"T-shirt", price:"$20"},
@@ -43,10 +44,19 @@ export const productsSlice = createSlice({
         });
         state.all_products = newProducts;
     },
+    patch_product:(state, action:PayloadAction<{id:number, image: string, label: string, title:string, price:string, sign:string,
+    amount:number, size:string}>)=>{
+        const ind = state.all_products.findIndex((item:{id:number, image: string, label: string, title:string, price:string})=>{
+          return item.id === action.payload.id;
+        });
+        const newProducts = [...state.all_products];
+        newProducts[ind] = action.payload;
+        state.all_products = newProducts;
+    }
   },
 })
 
 
-export const { set_up, append_product, delete_product } = productsSlice.actions
+export const { set_up, append_product, delete_product, patch_product } = productsSlice.actions
 
 export default productsSlice.reducer

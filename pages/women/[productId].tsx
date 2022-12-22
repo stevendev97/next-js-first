@@ -13,6 +13,7 @@ import {useRouter} from 'next/router';
 import type {RootState} from '../../redux/store';
 import { connect } from "react-redux";
 import {useShoppingCart} from '../../contexts/cartContext';
+import getProductId from '../../lib/util/getProductId';
 
  
 const customGrid = {
@@ -25,11 +26,6 @@ const customGrid = {
       }
     }
 };
-function getProductId(str: string|string[]|undefined){
-   if(typeof str === "string"){
-    return parseInt(str);
-   }
-}
 
 const sizes = [{ value: "XS", label: "XS" },
 { value: "S", label: "S" },

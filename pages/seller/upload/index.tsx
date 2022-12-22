@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import Upload from '../../components/uploadForm';
-import SellerSidebar from '../../components/seller_sidebar';
-import PopUp from '../../components/popUp';
-import PopupContext from '../../contexts/popupContext';
+import Upload from '../../../components/uploadForm';
+import SellerSidebar from '../../../components/seller_sidebar';
+import PopUp from '../../../components/popUp';
+import PopupContext from '../../../contexts/popupContext';
 
 
 export default function UploadPage() {
@@ -11,7 +11,7 @@ export default function UploadPage() {
         <PopupContext.Provider value={{popup, setPopup}}>
         <SellerSidebar/>
         <div className="uploading_form">
-        <Upload/>
+        <Upload itemId={undefined}/>
         </div>
         {popup && <PopUp/>}
         </PopupContext.Provider>

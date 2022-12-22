@@ -13,10 +13,20 @@ type props = {
 function PhotoWithButton({ picture, place, children }: props) {
     const router = useRouter();
 
-    return (<div onClick={() => router.replace('/seller/upload')} className={place === "main" ? styles.grid_item : styles.seller_grid_item}>
-        <img src={picture.image} alt={picture.title} className={styles.img} />
-        {children}
-    </div>);
+    return (<>
+    {place === "main" ?
+        <div className={styles.grid_item}>
+            <img src={picture.image} alt={picture.title} className={styles.img} />
+            {children}
+        </div>
+    :
+        <div className={styles.seller_grid_item}>
+            <img src={picture.image} alt={picture.title} className={styles.img} onClick={() => router.push(`/seller/upload/${picture.id}`)}/>
+            {children}
+        </div>
+    }
+    </>
+    );
 }
 
 export default PhotoWithButton;

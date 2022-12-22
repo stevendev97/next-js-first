@@ -1,5 +1,8 @@
 import React, { useState, useContext } from 'react'
 import Link from 'next/link';
+import Router from "next/router";
+import useSWR, {mutate} from 'swr';
+import useSWRMutation from 'swr/mutation'
 
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import PersonIcon from '@mui/icons-material/Person';
@@ -19,7 +22,8 @@ import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import Style from '../componentsType/customInputStyle';
 import loginContext from '../contexts/loginContext';
 import {useShoppingCart} from '../contexts/cartContext';
-
+import storage from '../lib/util/storage';
+import checkLogin from '../lib/util/checkLogin';
 
 const pages = ['MEN', 'WOMEN', 'KIDS', 'SALE', 'GIFTS'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -29,8 +33,24 @@ const StyledButton = styled(Button, {})(Style.btn)
 export default function Navbar() {
     const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
     const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
-    const [isLogin, setIsLogin] = useState<boolean>(false)
+    // const [isLoggedin, setIsLoggedin] = useState<boolean>(false)
     const {loginStatus, setLoginStatus} = useContext(loginContext);
+
+    const handleLogout = async (e: any) => {
+        e.preventDefault();
+        window.localStorage.removeItem("user");
+        mutate("user", null);
+        // const { trigger } = useSWRMutation('/api/user', storage);
+        Router.push(`/`)
+        // .then(() => trigger("user"));
+    };
+
+    // console.log("Context: ",loginStatus);
+
+    const {data:currentUser} = useSWR("user", storage);
+    const isLoggedIn = checkLogin(currentUser);
+    console.log("SWR: ", isLoggedIn);
+
     const {cartQuantity} = useShoppingCart()
 
     const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -149,12 +169,12 @@ export default function Navbar() {
                         Seller Entry
                         </StyledButton>
                         </Link>
-                        {loginStatus ? <StyledButton size="small" sx={{color:"white", mb:1.75, mr:1, py: 0, px:1, fontSize: '11px'}}
+                        {/* {isLoggedIn ? <StyledButton size="small" sx={{color:"white", mb:1.75, mr:1, py: 0, px:1, fontSize: '11px'}}
                         onClick={()=>{setLoginStatus(false);}}>
                         logout
                         </StyledButton>
                         : 
-                        <>
+                        <> */}
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                 <PersonIcon sx={{ display: { md: 'flex' }, mr: 2}} className='nav_icon' />
@@ -176,10 +196,12 @@ export default function Navbar() {
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}
                         >
-                            {isLogin ?
+                            {isLoggedIn ?
                                 settings.map((setting) => (
                                     <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                        <Typography textAlign="center">{setting}</Typography>
+                                        {setting === "Logout" ? <Typography textAlign="center" onClick={(e)=>{handleLogout(e)}}>{setting}</Typography>
+                                        : 
+                                        <Typography textAlign="center">{setting}</Typography>}
                                     </MenuItem>
                                 )) :
                                 settingsWithoutLogin.map((setting) => (
@@ -191,7 +213,7 @@ export default function Navbar() {
                                 ))
                             }
                         </Menu>
-                        </>}
+                        
                         <Link href="/cart">
                         <span className="cart_icon">
                         <ShoppingBasketIcon  sx={{mr:1, ml:1, mb:2, fontSize:"26px"}}/> 
